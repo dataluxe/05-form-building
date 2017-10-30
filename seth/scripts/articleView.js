@@ -51,6 +51,7 @@ articleView.handleMainNav = () => {
   $('.main-nav').on('click', '.tab', function() {
     $('.tab-content').hide();
     $('#' + $(this).data('content')).fadeIn();
+    console.log('test of newhtml nav');
   });
 
   $('.main-nav .tab:first').click();
@@ -89,7 +90,7 @@ articleView.initNewArticlePage = () => {
   });
 
   // DONE: Add an event handler to update the preview and the export field if any inputs change.
-  $('#new-form').on('change', 'input, textarea', articleView.create());
+  $('#new-form').on('change', 'input, textarea', articleView.create);
 };
 
 articleView.create = () => {
@@ -111,7 +112,7 @@ articleView.create = () => {
   })
 
   // DONE: Use our interface to the Handblebars template to put this new article into the DOM:
-  $('#aritcles').append(newArticle.toHtml());
+  $('#articles').append(newArticle.toHtml());
 
   // DONE: Activate the highlighting of any code blocks; look at the documentation for hljs to see how to do this by placing a callback function in the .each():
   $('pre code').each(function (i, block) {
@@ -121,7 +122,7 @@ articleView.create = () => {
   // DONE: Show our export field, and export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
   $('#export-field').show();
   $('#article-json').val(JSON.stringify(newArticle))
-
+  console.log('articleView.create is running...');
 };
 
 // COMMENT: Where is this function called? Why?
